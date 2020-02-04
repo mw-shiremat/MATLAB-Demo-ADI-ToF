@@ -11,7 +11,7 @@ imaqhwinfo
 %% Run this only if the 'aditofadapter' adapter is not present
 % You need to update the location of the DLL as appropriate for your
 % setup.
-imaqregister('c:\work\demos\ADI\aditofadapter.dll');
+imaqregister([pwd, '\aditofadapter.dll']);
 imaqreset;
 
 %% Open a connection to the ADI ToF camera. Be careful to not delete this 
@@ -44,9 +44,9 @@ stop(depthVid);
 % a halogen light that showed up at the top of the image.
 
 % Shift to saved file
-depthMap = imread('depthMap.png');
+depthMap = imread('depthMap_SH.png');
 
-rect = [1 121 640 480];
+rect = [1 50 640 480];
 I = imcrop(depthMap, rect);
 
 % These are needed later to position text overlays

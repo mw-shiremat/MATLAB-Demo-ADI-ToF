@@ -21,9 +21,23 @@ position2 = [(rect(3)-rect(1)-160)  (rect(4)-rect(2)-19)];
 
 prompt = 'Please input the IP address of your device:';
 ip_addr = inputdlg(prompt,'',1,{'IP Address goes here'}); 
-%%
-depthVid = videoinput('aditofadapter', 1, ip_addr{1});
 
+%% For Testing
+% msgbox(pwd);
+
+%% Register the ADI ToF adapter 
+hwinfo= imaqhwinfo;
+if ~any(strcmp(hwinfo.InstalledAdaptors, 'aditofadapter'))
+    imaqregister([pwd, '\aditofadapter.dll']);
+    imaqreset;
+end
+
+%% For Testing
+% info = imaqhwinfo('aditofadapter');
+% msgbox(info.AdaptorDllName);
+
+%% Start camera input and detect hand gestures
+depthVid = videoinput('aditofadapter', 1, ip_addr{1});
 viewer = vision.DeployableVideoPlayer();
 noHandImage = zeros(rect(4)-rect(2)+1,rect(3)-rect(1)+1,3);
 noHandImage = insertText(noHandImage, position1, 'No hand present');
@@ -37,11 +51,15 @@ while isOpen(viewer)
     trigger(depthVid);
     depthMap = getdata(depthVid); % hand must be upright
     I = imcrop(depthMap, rect);  
+    %Use the function detectHandGestureToF to identify the correct hand
+    %gesture (rock -paper-scissors) in the frame.
     valid = detectHandGestureToF(I,viewer,position1,position2);
     if ~valid
         viewer(noHandImage);
     end
 end
+
+%% End camera input
 stop(depthVid);
 release(viewer);
 delete(depthVid);

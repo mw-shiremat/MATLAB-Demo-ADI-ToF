@@ -1,17 +1,17 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="3650480684" file="C:\work\demos\ADI\DetectHandGestureToFproject.prj" location="C:\work\demos\ADI" name="DetectHandGestureToFproject" preferred-package-location="C:\work\demos\ADI\DetectHandGestureToFproject\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
-    <param.appname>DetectHandGestureToF</param.appname>
+  <configuration build-checksum="506636745" file="C:\Users\shiremat\OneDrive - MathWorks\Shared with Everyone\2020\ADI ToF Demo\DetectHandGestureToFproject.prj" location="C:\Users\shiremat\OneDrive - MathWorks\Shared with Everyone\2020\ADI ToF Demo" name="DetectHandGestureToFproject" preferred-package-location="C:\Users\shiremat\OneDrive - MathWorks\Shared with Everyone\2020\ADI ToF Demo\DetectHandGestureToFproject\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>DetectHandGestureADIToF</param.appname>
     <param.icon />
     <param.icons />
     <param.version>1.0</param.version>
-    <param.authnamewatermark>Bruce Tannenbaum</param.authnamewatermark>
-    <param.email>btannenb@mathworks.com</param.email>
+    <param.authnamewatermark>Bruce Tannenbaum; Sandeep Hiremath</param.authnamewatermark>
+    <param.email>btannenb@mathworks.com; shiremat@mathworks.com</param.email>
     <param.company>MathWorks</param.company>
-    <param.summary />
-    <param.description />
-    <param.screenshot>${PROJECT_ROOT}\RPSsplash.png</param.screenshot>
+    <param.summary>Rock-Paper-Scissors demo using MATLAB with Analog Devices ToF Depth Camera</param.summary>
+    <param.description>This application is a standalone Rock-Paper-Scissors demo using MATLAB with Analog Devices ToF Depth Camera</param.description>
+    <param.screenshot>${PROJECT_ROOT}\RPSsplashNew.PNG</param.screenshot>
     <param.guid />
-    <param.installpath.string>\MathWorks\DetectHandGestureToF\</param.installpath.string>
+    <param.installpath.string>\MathWorks\DetectHandGestureADIToF\</param.installpath.string>
     <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
     <param.logo />
     <param.install.notes />
@@ -24,10 +24,10 @@
     <param.user.defined.mcr.options />
     <param.target.type>subtarget.standalone</param.target.type>
     <param.support.packages />
-    <param.web.mcr>false</param.web.mcr>
-    <param.package.mcr>true</param.package.mcr>
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
-    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.web.mcr.name>RockPaperScissors_web</param.web.mcr.name>
     <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
     <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
     <param.windows.command.prompt>true</param.windows.command.prompt>
@@ -46,8 +46,6 @@
       <param.icon />
       <param.icons />
       <param.version />
-      <param.summary />
-      <param.description />
       <param.guid />
       <param.installpath.string />
       <param.installpath.combo />
@@ -62,8 +60,9 @@
       <param.user.defined.mcr.options />
       <param.target.type />
       <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
       <param.no.mcr />
-      <param.web.mcr.name />
       <param.package.mcr.name />
       <param.no.mcr.name />
       <param.windows.command.prompt />
@@ -79,14 +78,17 @@
     <fileset.resources>
       <file>${PROJECT_ROOT}\ToFrunloop.m</file>
     </fileset.resources>
-    <fileset.package />
+    <fileset.package>
+      <file>${PROJECT_ROOT}\aditof.dll</file>
+      <file>${PROJECT_ROOT}\aditofadapter.dll</file>
+    </fileset.package>
     <fileset.depfun>
       <file>${PROJECT_ROOT}\detectHandGestureToF.m</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\DetectHandGestureToFproject\for_testing" name="splash.png" optional="false">C:\work\demos\ADI\DetectHandGestureToFproject\for_testing\splash.png</file>
-      <file location="${PROJECT_ROOT}\DetectHandGestureToFproject\for_testing" name="DetectHandGestureToF.exe" optional="false">C:\work\demos\ADI\DetectHandGestureToFproject\for_testing\DetectHandGestureToF.exe</file>
-      <file location="${PROJECT_ROOT}\DetectHandGestureToFproject\for_testing" name="readme.txt" optional="true">C:\work\demos\ADI\DetectHandGestureToFproject\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\DetectHandGestureToFproject\for_testing" name="readme.txt" optional="true">C:\Users\shiremat\OneDrive - MathWorks\Shared with Everyone\2020\ADI ToF Demo\DetectHandGestureToFproject\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\DetectHandGestureToFproject\for_testing" name="DetectHandGestureADIToF.exe" optional="false">C:\Users\shiremat\OneDrive - MathWorks\Shared with Everyone\2020\ADI ToF Demo\DetectHandGestureToFproject\for_testing\DetectHandGestureADIToF.exe</file>
+      <file location="${PROJECT_ROOT}\DetectHandGestureToFproject\for_testing" name="splash.png" optional="false">C:\Users\shiremat\OneDrive - MathWorks\Shared with Everyone\2020\ADI ToF Demo\DetectHandGestureToFproject\for_testing\splash.png</file>
     </build-deliverables>
     <workflow />
     <matlab>

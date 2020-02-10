@@ -17,5 +17,8 @@ https://www.mathworks.com/products/compiler/matlab-runtime.html
 NOTE: The version of the MATLAB Runtime is tied to the version of MATLAB used to build the application.
 2. Open the DetectHandGestureADIToF.exe 
 
+Camera Calibrator App 
+Example - Measuring penny size from an image
+https://www.mathworks.com/help/releases/R2019b/vision/examples/measuring-planar-objects-with-a-calibrated-camera.html
 
 Refer to PPT file in the Slides folder for more details on the demo. 

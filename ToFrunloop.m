@@ -13,18 +13,6 @@ rect = [1 121 640 480];
 position1 = [(rect(3)-rect(1)-160) (rect(4)-rect(2)-49)];
 position2 = [(rect(3)-rect(1)-160)  (rect(4)-rect(2)-19)];
 
-%% Open a connection to the ADI ToF camera. Be careful to not delete this 
-% You cannot open a second connection to the camera. You must close this
-% connection before you can open another one.  Be careful not to delete this 
-% variable.  Also make sure to update the IP address as appropriate for
-% your setup.
-
-prompt = 'Please input the IP address of your device:';
-ip_addr = inputdlg(prompt,'',1,{'IP Address goes here'}); 
-
-%% For Testing
-% msgbox(pwd);
-
 %% Register the ADI ToF adapter 
 hwinfo= imaqhwinfo;
 if ~any(strcmp(hwinfo.InstalledAdaptors, 'aditofadapter'))
@@ -32,12 +20,36 @@ if ~any(strcmp(hwinfo.InstalledAdaptors, 'aditofadapter'))
     imaqreset;
 end
 
-%% For Testing
-% info = imaqhwinfo('aditofadapter');
-% msgbox(info.AdaptorDllName);
+%% Open a connection to the ADI ToF camera. Be careful to not delete this
+% You cannot open a second connection to the camera. You must close this
+% connection before you can open another one.  Be careful not to delete this 
+% variable.  Also make sure to update the IP address as appropriate for
+% your setup.
+
+answer = questdlg('Choose the mode of communication between MATLAB and Raspberry Pi:', ...
+    'Camera Connection', ...
+    'Ethernet','USB', 'Ethernet');
+% Handle response
+switch answer
+    case 'Ethernet'
+        connect =1;
+    case 'USB'
+        connect = 2;
+end
+
+if connect == 1
+    prompt = 'Please input the IP address of your device:';
+    ip_addr = inputdlg(prompt,'',1,{'IP Address goes here'});
+    %Setup camera connection over Ethernet
+    depthVid = videoinput('aditofadapter', 1, ip_addr{1});
+else
+    %Setup camera connection over USB
+    depthVid = videoinput('aditofadapter', 1);
+    
+end
+
 
 %% Start camera input and detect hand gestures
-depthVid = videoinput('aditofadapter', 1, ip_addr{1});
 viewer = vision.DeployableVideoPlayer();
 noHandImage = zeros(rect(4)-rect(2)+1,rect(3)-rect(1)+1,3);
 noHandImage = insertText(noHandImage, position1, 'No hand present');

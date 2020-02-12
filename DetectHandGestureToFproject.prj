@@ -8,7 +8,9 @@
     <param.email>btannenb@mathworks.com; shiremat@mathworks.com</param.email>
     <param.company>MathWorks</param.company>
     <param.summary>Rock-Paper-Scissors demo using MATLAB with Analog Devices ToF Depth Camera</param.summary>
-    <param.description>This application is a standalone Rock-Paper-Scissors demo using MATLAB with Analog Devices ToF Depth Camera</param.description>
+    <param.description>This application is a standalone Rock-Paper-Scissors demo using MATLAB with Analog Devices ToF Depth Camera
+
+% Copyright 2020 The MathWorks, Inc.</param.description>
     <param.screenshot>${PROJECT_ROOT}\RPSsplashNew.PNG</param.screenshot>
     <param.guid />
     <param.installpath.string>\MathWorks\DetectHandGestureADIToF\</param.installpath.string>
@@ -41,7 +43,11 @@
 	 
  Input Arguments 
 	 -?  print help on how to use the application 
-	 input arguments</param.help.text>
+	 input arguments 
+ Description 
+ 	 This application is a standalone Rock-Paper-Scissors demo using MATLAB with Analog Devices ToF Depth Camera
+
+% Copyright 2020 The MathWorks, Inc.</param.help.text>
     <unset>
       <param.icon />
       <param.icons />

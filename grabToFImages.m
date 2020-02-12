@@ -1,3 +1,4 @@
+%% Copyright 2020 The MathWorks, Inc.
 function depthMap = grabToFImages(depthVid)
 
 start(depthVid);

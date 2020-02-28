@@ -21,4 +21,17 @@ Camera Calibrator App
 Example - Measuring penny size from an image
 https://www.mathworks.com/help/releases/R2019b/vision/examples/measuring-planar-objects-with-a-calibrated-camera.html
 
+MathWorks products required - 
+•	MATLAB
+•	Image Acquisition Toolbox
+•	Image Processing Toolbox
+•	Computer Vision Toolbox
+•	MATLAB Compiler (optional - for compiling the app)
+
+Other files/products required -
+•	The two DLLs from ADI 
+o	  Aditofadapter.dll
+o	  Aditof.dll
+
+
 Refer to PPT file in the Slides folder for more details on the demo. 
